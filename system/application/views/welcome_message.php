@@ -58,5 +58,7 @@ code {
 
 <p><br />Page rendered in {elapsed_time} seconds</p>
 
+<p>Rendering used {memory_usage}</p>
+
 </body>
 </html>

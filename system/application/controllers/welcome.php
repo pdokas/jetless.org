@@ -2,14 +2,18 @@
 
 class Welcome extends Controller {
 
-	function Welcome()
-	{
-		parent::Controller();	
+	function __construct() {
+		parent::__construct();
+		
+		$this->output->enable_profiler(TRUE);
 	}
 	
-	function index()
-	{
+	function index() {
 		$this->load->view('welcome_message');
+	}
+	
+	function foo() {
+		echo "foo!";
 	}
 }
 
