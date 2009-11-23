@@ -50,18 +50,18 @@ $db['dev']['cachedir'] = "";
 $db['dev']['char_set'] = "utf8";
 $db['dev']['dbcollat'] = "utf8_general_ci";
 
-$db['dev']['hostname'] = "db.segpub.net";
-$db['dev']['username'] = "jetless_us5";
-$db['dev']['password'] = "";
-$db['dev']['database'] = "jetless_db5";
-$db['dev']['dbdriver'] = "mysql";
-$db['dev']['dbprefix'] = "j_ci_";
-$db['dev']['pconnect'] = TRUE;
-$db['dev']['db_debug'] = TRUE;
-$db['dev']['cache_on'] = FALSE;
-$db['dev']['cachedir'] = "";
-$db['dev']['char_set'] = "utf8";
-$db['dev']['dbcollat'] = "utf8_general_ci";
+$db['prod']['hostname'] = "db.segpub.net";
+$db['prod']['username'] = "jetless_us5";
+$db['prod']['password'] = "";
+$db['prod']['database'] = "jetless_db5";
+$db['prod']['dbdriver'] = "mysql";
+$db['prod']['dbprefix'] = "j_ci_";
+$db['prod']['pconnect'] = TRUE;
+$db['prod']['db_debug'] = TRUE;
+$db['prod']['cache_on'] = FALSE;
+$db['prod']['cachedir'] = "";
+$db['prod']['char_set'] = "utf8";
+$db['prod']['dbcollat'] = "utf8_general_ci";
 
 
 /* End of file database.php */

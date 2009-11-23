@@ -14,7 +14,11 @@ class Junk extends Controller {
 		$dbs = $this->dbutil->list_databases();
 
 		foreach($dbs as $db) {
-			echo $db . "<br />\n";
+			$tables = $this->db->list_tables();
+
+			foreach ($tables as $table) {
+			   echo $db . ' ' . $table . "<br />\n";
+			}
 		}
 	}
 }
