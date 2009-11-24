@@ -4,57 +4,65 @@ class Admin extends Controller {
 
 	function __construct() {
 		parent::__construct();
-		
-		$this->load->dbforge();
-		
+
 		$this->output->enable_profiler(TRUE);
 	}
-	
+
 	function index() {
 		// $data['page_title'] = 'Your title';
 		// $this->load->view('header');
 		// $this->load->view('menu');
 		// $this->load->view('content', $data);
 		// $this->load->view('footer');
-		
+
 		$this->_list_blogs();
 	}
 	
-	function create_blogs() {
-		$this->dbforge->add_field(array(
-			'blog_id' => array(
-				'type' => 'INT',
-				'constraint' => 5, 
-				'unsigned' => TRUE,
-				'auto_increment' => TRUE
-			),
-			'name' => array(
-				'type' => 'VARCHAR',
-				'constraint' => '100',
-			),
-			'description' => array(
-				'type' => 'TEXT',
-				'null' => TRUE,
-			)
+	function add($blog_id, $title, $body, $excerpt = '') {
+		$this->load->model('Blog');
+		$this->load->plugin('sql_datetime');
+		
+		$this->Blog->add_entry(array(
+			'blog_id' => $blog_id,
+			'title' => $title,
+			'body' => $body,
+			'excerpt' => $excerpt,
+			'datetime' => sql_datetime(time())
 		));
-		$this->dbforge->add_key('blog_id', TRUE);
-		$this->dbforge->create_table('blogs', TRUE);
 	}
-	
+
 	/* Private functions */
-	
+
 	function _list_blogs() {
+		$this->load->database();
+
 		$tables = $this->db->list_tables();
 
 		foreach ($tables as $table) {
 			echo $table . "<br />\n";
-			
-			$fields = $this->db->list_fields('blogs');
 
+			$fields = $this->db->list_fields($table);
 			foreach ($fields as $field) {
-			   echo '&rarr; ' . $field . "<br />\n";
+				echo '&rarr; ' . $field . "<br />\n";
 			}
+
+			$query = $this->db->get($table);
+			if ($query->num_rows() > 0) {
+				foreach ($query->result_array() as $row) {
+					foreach ($row as $item) {
+						echo ' ' . $item;
+					}
+					echo "<br />\n";;
+				}
+			}
+			
+			echo "<br />\n";
 		}
+	}
+
+	function nuke() {
+		$this->load->model('Tables');
+		$this->Tables->nuke();
 	}
 }
 
