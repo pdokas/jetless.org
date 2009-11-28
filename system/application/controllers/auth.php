@@ -1,5 +1,4 @@
 <?php
-
 class Auth extends Controller {
 
 	public function __construct() {
@@ -14,7 +13,7 @@ class Auth extends Controller {
 			$this->login();
 		}
 		else {
-			header('Location: /');
+			header('Location: /admin');
 		}
 	}
 
@@ -28,11 +27,16 @@ class Auth extends Controller {
 		$this->load->model('user');
 		
 		if ($this->user->authenticate($this->input->post('user'), $this->input->post('pass'))) {
-			$this->session->set_userdata('loggedin', true);
-			header('Location: ' . $this->input->post('referer'));
+			$this->session->set_userdata('loggedin', TRUE);
+			
+			$bounce_to = '/admin';
+			if ($this->input->post('referer')) {
+				$bounce_to = $this->input->post('referer');
+			}
+			header('Location: ' . $bounce_to);
 		}
 		else {
-			header('Location: /auth/');
+			header('Location: /admin');
 		}
 	}
 

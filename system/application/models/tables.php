@@ -1,5 +1,4 @@
 <?php
-
 class Tables extends Model {
 
 	function __construct() {
@@ -154,4 +153,5 @@ class Tables extends Model {
 	}
 }
 
-?>
+/* End of file tables.php */
+/* Location: ./system/application/models/tables.php */

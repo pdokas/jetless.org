@@ -1,5 +1,4 @@
 <?php
-
 class User extends Model {
 
 	function __construct() {
@@ -18,4 +17,5 @@ class User extends Model {
 	}
 }
 
-?>
+/* End of file user.php */
+/* Location: ./system/application/models/user.php */

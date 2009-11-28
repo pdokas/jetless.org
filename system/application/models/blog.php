@@ -1,5 +1,4 @@
 <?php
-
 class Blog extends Model {
 
 	function __construct() {
@@ -26,4 +25,5 @@ class Blog extends Model {
 	}
 }
 
-?>
+/* End of file blog.php */
+/* Location: ./system/application/models/blog.php */

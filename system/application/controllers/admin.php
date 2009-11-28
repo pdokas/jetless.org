@@ -1,6 +1,5 @@
 <?php
-
-class Admin extends Controller {
+class Admin extends MY_Controller {
 
 	function __construct() {
 		parent::__construct();
@@ -72,5 +71,5 @@ class Admin extends Controller {
 	}
 }
 
-/* End of file junk.php */
-/* Location: ./system/application/controllers/junk.php */
+/* End of file admin.php */
+/* Location: ./system/application/controllers/admin.php */

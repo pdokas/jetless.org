@@ -1,5 +1,4 @@
 <?php
-
 class Junk extends Controller {
 
 	function __construct() {
