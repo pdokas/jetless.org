@@ -9,7 +9,11 @@ class Junk extends Controller {
 	}
 	
 	function index() {
-		echo "hey!";
+		$this->load->library('session');
+		
+		echo ($this->session->userdata('loggedin') ? 'Logged in' : 'Not logged in') . '<br>';
+		echo "<a href='/auth/'>Login</a><br>";
+		echo "<a href='/auth/logout'>Logout</a><br>";
 	}
 }
 

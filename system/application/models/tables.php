@@ -9,13 +9,70 @@ class Tables extends Model {
 	}
 	
 	function nuke() {
-		$this->_init_blogs();
-		$this->_init_blog_entries();
-		$this->_stub_in_data();
+		$this->init_sessions();
+		$this->init_users();
+		$this->init_blogs();
+		$this->init_blog_entries();
+		$this->stub_in_data();
 	}
+
+	// TODO: Remove all of these
+	function init_sessions()		{ return $this->_init_sessions();		}
+	function init_users()			{ return $this->_init_users();			}
+	function init_blogs()			{ return $this->_init_blogs();			}
+	function init_blog_entries()	{ return $this->_init_blog_entries();	}
+	function stub_in_data()			{ return $this->_stub_in_data();		}
 	
-	function init_blogs() { return $this->_init_blogs(); }
-	function init_blog_entries() { return $this->_init_blog_entries(); }
+	/* Private functions */
+	
+	function _init_sessions() {
+		$this->dbforge->drop_table('ci_sessions');
+		
+		$this->dbforge->add_field(array(
+			'session_id' => array(
+				'type' => 'VARCHAR',
+				'constraint' => 40,
+				'default' => '0'
+			),
+			'ip_address' => array(
+				'type' => 'VARCHAR',
+				'constraint' => 16,
+				'default' => '0'
+			),
+			'user_agent' => array(
+				'type' => 'VARCHAR',
+				'constraint' => 50
+			),
+			'last_activity' => array(
+				'type' => 'INT',
+				'constraint' => 10,
+				'unsigned' => TRUE,
+				'default' => '0'
+			),
+			'user_data' => array(
+				'type' => 'TEXT'
+			)
+		));
+		$this->dbforge->add_key('session_id', TRUE);
+		$this->dbforge->create_table('ci_sessions', TRUE);
+	}
+
+	function _init_users() {
+		$this->dbforge->drop_table('users');
+		
+		$this->dbforge->add_field(array(
+			'name' => array(
+				'type' => 'VARCHAR',
+				'constraint' => 40
+			),
+			'pass' => array(
+				'type' => 'VARCHAR',
+				'constraint' => 40
+			)
+		));
+		$this->dbforge->add_key('name', TRUE);
+		$this->dbforge->create_table('users', TRUE);
+	}
 	
 	function _init_blogs() {
 		$this->dbforge->drop_table('blogs');
@@ -55,6 +112,15 @@ class Tables extends Model {
 				'constraint' => 5,
 				'unsigned' => TRUE
 			),
+			'mode' => array(
+				'type' => 'VARCHAR',
+				'constraint' => 20,
+				'default' => 'draft'
+			),
+			'type' => array(
+				'type' => 'VARCHAR',
+				'constraint' => 40
+			),
 			'title' => array(
 				'type' => 'VARCHAR',
 				'constraint' => 255
@@ -79,6 +145,11 @@ class Tables extends Model {
 		$this->db->insert('blogs', array(
 			'name' => 'Everything',
 			'description' => "Ph'nglui mglw'nafh Cthulhu R'lyeh wgah'nagl fhtagn"
+		));
+		
+		$this->db->insert('users', array(
+			'name' => 'phil',
+			'pass' => 'c199defc70b9125b643a33e65d296bd45ac58961'
 		));
 	}
 }

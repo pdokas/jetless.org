@@ -9,13 +9,11 @@ class Admin extends Controller {
 	}
 
 	function index() {
-		// $data['page_title'] = 'Your title';
-		// $this->load->view('header');
-		// $this->load->view('menu');
-		// $this->load->view('content', $data);
-		// $this->load->view('footer');
+		$data['content'] = $this->_list_blogs();
 
-		$this->_list_blogs();
+		$this->load->view('admin/header');
+		$this->load->view('admin/dashboard', $data);
+		$this->load->view('admin/footer');
 	}
 	
 	function add($blog_id, $title, $body, $excerpt = '') {
@@ -31,38 +29,46 @@ class Admin extends Controller {
 		));
 	}
 
+	function nuke() {
+		$this->load->model('Tables');
+		$this->Tables->nuke();
+	}
+	
+	function do_once() {
+		// $this->load->model('Tables');
+		// $this->Tables->init_users();
+	}
+
 	/* Private functions */
 
 	function _list_blogs() {
 		$this->load->database();
 
 		$tables = $this->db->list_tables();
-
+		$ret = '';
+		
 		foreach ($tables as $table) {
-			echo $table . "<br />\n";
+			$ret .= $table . "<br>\n";
 
 			$fields = $this->db->list_fields($table);
 			foreach ($fields as $field) {
-				echo '&rarr; ' . $field . "<br />\n";
+				$ret .= '&rarr; ' . $field . "<br>\n";
 			}
 
 			$query = $this->db->get($table);
 			if ($query->num_rows() > 0) {
 				foreach ($query->result_array() as $row) {
 					foreach ($row as $item) {
-						echo ' ' . $item;
+						$ret .= ' ' . $item;
 					}
-					echo "<br />\n";;
+					$ret .= "<br>\n";;
 				}
 			}
 			
-			echo "<br />\n";
+			$ret .= "<br>\n";
 		}
-	}
-
-	function nuke() {
-		$this->load->model('Tables');
-		$this->Tables->nuke();
+		
+		return $ret;
 	}
 }
 
