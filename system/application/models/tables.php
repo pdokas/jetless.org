@@ -6,21 +6,15 @@ class Tables extends Model {
 		
 		$this->load->dbforge();
 	}
-	
-	function nuke() {
-		$this->init_sessions();
-		$this->init_users();
-		$this->init_blogs();
-		$this->init_blog_entries();
-		$this->stub_in_data();
-	}
 
 	// TODO: Remove all of these
-	function init_sessions()		{ return $this->_init_sessions();		}
-	function init_users()			{ return $this->_init_users();			}
-	function init_blogs()			{ return $this->_init_blogs();			}
-	function init_blog_entries()	{ return $this->_init_blog_entries();	}
-	function stub_in_data()			{ return $this->_stub_in_data();		}
+	function nuke() {
+		$this->_init_sessions();
+		$this->_init_users();
+		$this->_init_blogs();
+		$this->_init_blog_entries();
+		$this->_stub_in_data();
+	}
 	
 	/* Private functions */
 	

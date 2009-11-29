@@ -10,7 +10,7 @@ class Admin extends MY_Controller {
 	function index() {
 		$data['content'] = $this->_list_blogs();
 
-		$this->load->view('admin/header');
+		$this->load->view('admin/header', $data);
 		$this->load->view('admin/dashboard', $data);
 		$this->load->view('admin/footer');
 	}

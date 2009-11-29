@@ -1,0 +1,7 @@
+#codeigniter_profiler {
+	font-size: 1.4em;
+	line-height: 1.5em;
+}
+
+#codeigniter_profiler strong { font-weight: bold; }
+#codeigniter_profiler em { font-style: em; }
