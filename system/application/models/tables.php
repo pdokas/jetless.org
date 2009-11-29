@@ -148,7 +148,7 @@ class Tables extends Model {
 		
 		$this->db->insert('users', array(
 			'name' => 'phil',
-			'pass' => 'c199defc70b9125b643a33e65d296bd45ac58961'
+			'pass' => '74fc3f83082d2f69b99a4155e393357576f2d7cd'
 		));
 	}
 }

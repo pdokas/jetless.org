@@ -218,6 +218,7 @@ $config['cache_path'] = '';
 |
 */
 $config['encryption_key'] = "QNwr@rjw41'@icAs}bqL'@jk.qz23i/X";
+$config['encryption_salt'] = "Kezv37BzVw-Fly6'&Vc0#&;ll\q,;uU!";
 
 /*
 |--------------------------------------------------------------------------

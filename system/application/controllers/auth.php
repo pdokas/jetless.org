@@ -36,7 +36,7 @@ class Auth extends Controller {
 			header('Location: ' . $bounce_to);
 		}
 		else {
-			header('Location: /admin');
+			header('Location: /auth');
 		}
 	}
 

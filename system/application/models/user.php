@@ -8,7 +8,7 @@ class User extends Model {
 	}
 
 	function authenticate($name, $pass) {
-		$pass_hash = sha1($pass);
+		$pass_hash = sha1($pass . $this->config->item('encryption_salt'));
 		
 		$this->db->select('*')->from('users')->where('name', $name)->where('pass', $pass_hash);
 		$query = $this->db->get();
