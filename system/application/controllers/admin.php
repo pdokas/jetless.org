@@ -8,23 +8,23 @@ class Admin extends MY_Controller {
 	}
 
 	function index() {
-		$data['content'] = $this->_list_blogs();
+		$data['blog_table'] = $this->_list_blog_entries();
 
-		$this->load->view('admin/header', $data);
+		$this->load->view('includes/header', $data);
 		$this->load->view('admin/dashboard', $data);
-		$this->load->view('admin/footer');
+		$this->load->view('includes/footer');
 	}
 	
-	function add($blog_id, $title, $body, $excerpt = '') {
+	function add($title, $body, $blog_id = 1, $excerpt = '') {
 		$this->load->model('Blog');
-		$this->load->plugin('sql_datetime');
+		$this->load->helper('sql_datetime');
 		
 		$this->Blog->add_entry(array(
 			'blog_id' => $blog_id,
 			'title' => $title,
 			'body' => $body,
 			'excerpt' => $excerpt,
-			'datetime' => sql_datetime(time())
+			'datetime' => to_sql_datetime(time())
 		));
 	}
 
@@ -40,7 +40,12 @@ class Admin extends MY_Controller {
 
 	/* Private functions */
 
-	function _list_blogs() {
+	function _list_blog_entries() {
+		$this->load->model('Blog');
+		return $this->Blog->list_entries();
+	}
+
+	function _list_all_tables() {
 		$this->load->database();
 
 		$tables = $this->db->list_tables();

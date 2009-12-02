@@ -12,7 +12,7 @@ class Blog extends Model {
 	}
 
 	function list_entries($start = 0, $length = 10) {
-		$query = $this->db->get('blog_entries', $start, $length);
+		$query = $this->db->get('blog_entries', $length, $start);
 
 		$result = array();
 		if ($query->num_rows() > 0) {

@@ -18,9 +18,9 @@ class Auth extends Controller {
 	}
 
 	public function login() {
-		$this->load->view('admin/header');
+		$this->load->view('includes/header');
 		$this->load->view('admin/login');
-		$this->load->view('admin/footer');
+		$this->load->view('includes/footer');
 	}
 
 	public function check() {

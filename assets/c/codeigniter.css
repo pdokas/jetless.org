@@ -3,5 +3,7 @@
 	line-height: 1.5em;
 }
 
+#codeigniter_profiler td { padding: 0.333em 0.5em; }
+
 #codeigniter_profiler strong { font-weight: bold; }
 #codeigniter_profiler em { font-style: em; }
