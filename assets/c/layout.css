@@ -1,0 +1,26 @@
+#wrapper {
+	margin: 0 auto;
+	width: 960px;
+}
+
+	#wrapper > header {
+		padding: 20px;
+	}
+	
+	#wrapper > header h1 {
+		color: white;
+		font-size: 4em;
+		font-weight: bold;
+		letter-spacing: -1px;
+	}
+	
+	#wrapper article {
+		background-color: white;
+		border-bottom: 1px dotted #94B3DE;
+		padding: 20px;
+	}
+	
+	#wrapper > footer {
+		background-color: white;
+		padding: 20px 20px 40px;
+	}

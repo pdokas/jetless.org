@@ -18,3 +18,4 @@ blockquote:before, blockquote:after, q:before, q:after { content: ''; content: n
 ins { text-decoration: none; }
 del { text-decoration: line-through; }
 table { border-collapse: collapse; border-spacing: 0; }
+article, aside, figure, footer, header, hgroup, nav, section{ display:block; }

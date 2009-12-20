@@ -1,7 +1,7 @@
 <?php foreach ($entries as $entry): ?>
-<div>
-	<h2><?php echo $entry->title; ?></h2>
-	<h3><?php echo format_sql_datetime('M j, ga', $entry->datetime); ?></h3>
+<article>
+	<h1><?php echo $entry->title; ?></h1>
+	<time datetime="<?php echo format_sql_datetime($entry->datetime); ?>" pubdate><?php echo format_sql_datetime($entry->datetime, 'M j, ~ga'); ?></time>
 
 	<?php if ($entry->excerpt): ?>
 		<?php echo $entry->excerpt; ?>
@@ -10,5 +10,5 @@
 	<?php else: ?>
 		<?php echo $entry->body; ?>
 	<?php endif; ?>
-</div>
+</article>
 <?php endforeach; ?>
