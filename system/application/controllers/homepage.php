@@ -9,7 +9,7 @@ class Homepage extends Controller {
 	
 	function index() {
 		$this->load->model('Blog');
-		$this->load->helper(array('sql_datetime_helper', 'markdown', 'smartypants'));
+		$this->load->helper(array('sql_datetime', 'typesetting'));
 		$data['entries'] = $this->Blog->list_entries();
 
 		$this->load->view('includes/header', $data);
@@ -18,5 +18,5 @@ class Homepage extends Controller {
 	}
 }
 
-/* End of file junk.php */
-/* Location: ./system/application/controllers/junk.php */
+/* End of file homepage.php */
+/* Location: ./system/application/controllers/homepage.php */
