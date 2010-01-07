@@ -9,7 +9,11 @@ class Homepage extends Controller {
 	
 	function index() {
 		$this->load->model('Blog');
-		$this->load->helper(array('sql_datetime', 'typesetting'));
+		$this->load->helper(array(
+			'sql_datetime',
+			'typesetting'
+		));
+		
 		$data['entries'] = $this->Blog->list_entries();
 
 		$this->load->view('includes/header', $data);

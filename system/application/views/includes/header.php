@@ -10,7 +10,7 @@
 	<div id='wrapper'>
 		<header>
 			<hgroup>
-				<h1>jetless</h1>
+				<h1><a href='/'>jetless</a></h1>
 			</hgroup>
 		</header>
 	

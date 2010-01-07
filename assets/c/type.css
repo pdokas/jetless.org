@@ -1,4 +1,4 @@
-* {
-	font: normal 1em/1em HelveticaNeue, "helvetica neue", helvetica, arial, sans-serif;
+body {
+	font: normal 62.5%/1em HelveticaNeue, "helvetica neue", helvetica, arial, sans-serif;
 	-webkit-text-stroke: 1px transparent;
 }

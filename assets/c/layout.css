@@ -3,24 +3,47 @@
 	width: 960px;
 }
 
-	#wrapper > header {
-		padding: 20px;
-	}
+#wrapper > header {
+	padding: 20px;
+}
 	
-	#wrapper > header h1 {
+	#wrapper > header h1 > a {
 		color: white;
 		font-size: 4em;
 		font-weight: bold;
 		letter-spacing: -1px;
+		line-height: 1em;
+		text-decoration: none;
 	}
 	
-	#wrapper article {
-		background-color: white;
-		border-bottom: 1px dotted #94B3DE;
-		padding: 20px;
+article {
+	background-color: white;
+	border-bottom: 1px dotted #94B3DE;
+	padding: 20px;
+}
+
+	article h1 {
+		font-size: 2em;
+		margin: 0 0 0.5em 100px;
+	}
+
+	article time {
+		float: left;
+		font-size: 1.1em;
+		width: 100px;
 	}
 	
-	#wrapper > footer {
-		background-color: white;
-		padding: 20px 20px 40px;
+	article p {
+		font-size: 1.25em;
+		line-height: 1.333em;
+		margin-left: 100px;
 	}
+	
+	article p + p {
+		margin-bottom: 1em;
+	}
+	
+#wrapper > footer {
+	background-color: white;
+	padding: 20px 20px 40px;
+}

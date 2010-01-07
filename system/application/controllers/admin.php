@@ -15,7 +15,7 @@ class Admin extends MY_Controller {
 		$this->load->view('includes/footer');
 	}
 	
-	function add($title, $body, $blog_id = 1, $excerpt = '') {
+	function add($slug, $title, $body, $excerpt = '', $blog_id = 1) {
 		$this->load->model('Blog');
 		$this->load->helper('sql_datetime');
 		

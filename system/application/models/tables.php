@@ -112,7 +112,11 @@ class Tables extends Model {
 			),
 			'type' => array(
 				'type' => 'VARCHAR',
-				'constraint' => 40
+				'constraint' => 63
+			),
+			'slug' => array(
+				'type' => 'VARCHAR',
+				'constraint' => 127
 			),
 			'title' => array(
 				'type' => 'VARCHAR',
@@ -130,7 +134,7 @@ class Tables extends Model {
 			)
 		));
 		$this->dbforge->add_key('entry_id', TRUE);
-		// $this->dbforge->add_key('blog_id');
+		// $this->dbforge->add_key('blog_id'); TODO: figure out how to do foreign keys in CodeIgniter
 		$this->dbforge->create_table('blog_entries', TRUE);
 	}
 	
