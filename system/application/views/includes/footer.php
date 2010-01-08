@@ -1,3 +1,4 @@
+
 		<footer>
 			&copy; 2009<?php echo (date('Y') > 2009 ? '&ndash;'.date('y') : ''); ?>
 		</footer>

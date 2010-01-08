@@ -40,8 +40,10 @@
 |
 */
 
-$route['default_controller'] = "homepage";
-$route['scaffolding_trigger'] = "";
+$route['default_controller'] = 'homepage';
+$route['scaffolding_trigger'] = '';
+
+$route['admin/entries/new'] = 'admin/new_blog_entry';
 
 
 /* End of file routes.php */

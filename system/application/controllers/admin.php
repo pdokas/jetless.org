@@ -8,23 +8,33 @@ class Admin extends MY_Controller {
 	}
 
 	function index() {
-		$data['blog_table'] = $this->_list_blog_entries();
-
-		$this->load->view('includes/header', $data);
-		$this->load->view('admin/dashboard', $data);
+		$this->load->view('includes/header');
+		$this->load->view('admin/dashboard');
 		$this->load->view('includes/footer');
 	}
 	
-	function add($slug, $title, $body, $excerpt = '', $blog_id = 1) {
+	function new_blog_entry() {
+		$this->load->view('includes/header');
+		$this->load->view('admin/new_blog_entry');
+		$this->load->view('includes/footer');
+	}
+	
+	function handle_new_entry($slug, $title, $body, $excerpt = '', $datetime = -1, $mode = 'draft') {
 		$this->load->model('Blog');
 		$this->load->helper('sql_datetime');
 		
+		if ($datetime === -1) { $datetime = to_sql_datetime(time()); }
+		
 		$this->Blog->add_entry(array(
-			'blog_id' => $blog_id,
+			'blog_id' => 1,
+			'type' => 'blog',
+			'mode' => $mode,
+			
+			'slug' => $slug,
 			'title' => $title,
 			'body' => $body,
 			'excerpt' => $excerpt,
-			'datetime' => to_sql_datetime(time())
+			'datetime' => $datetime
 		));
 	}
 
