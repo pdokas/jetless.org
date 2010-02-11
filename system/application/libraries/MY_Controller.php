@@ -5,6 +5,7 @@ class MY_Controller extends Controller {
 		$this->load->library('session');
 		
 		if (!$this->session->userdata('loggedin')) {
+			$this->session->set_userdata('redirect_to', $_SERVER['REQUEST_URI']);
 			header('Location: /auth/');
 		}
 	}
