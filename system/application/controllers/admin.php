@@ -19,11 +19,17 @@ class Admin extends MY_Controller {
 		$this->load->view('includes/footer');
 	}
 	
-	function handle_new_entry($slug, $title, $body, $excerpt = '', $datetime = -1, $mode = 'draft') {
+	function handle_new_entry() {
 		$this->load->model('Blog');
 		$this->load->helper('sql_datetime');
 		
-		if ($datetime === -1) { $datetime = to_sql_datetime(time()); }
+		$slug = $this->input->post('slug');
+		$title = $this->input->post('title');
+		$body = $this->input->post('body');
+		
+		$excerpt = $this->input->post('excerpt');
+		$datetime = $this->input->post('datetime') ? $this->input->post('datetime') : to_sql_datetime(time());
+		$mode = (stripos($this->input->post('submit'), 'publish') !== FALSE) ? 'published' : 'draft';
 		
 		$this->Blog->add_entry(array(
 			'blog_id' => 1,
