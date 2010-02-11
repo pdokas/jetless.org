@@ -26,10 +26,17 @@ class Admin extends MY_Controller {
 		$slug = $this->input->post('slug');
 		$title = $this->input->post('title');
 		$body = $this->input->post('body');
-		
 		$excerpt = $this->input->post('excerpt');
-		$datetime = $this->input->post('datetime') ? $this->input->post('datetime') : to_sql_datetime(time());
-		$mode = (stripos($this->input->post('submit'), 'publish') !== FALSE) ? 'published' : 'draft';
+		
+		$datetime = to_sql_datetime(time());
+		if ($this->input->post('datetime')) {
+			$datetime = $this->input->post('datetime');
+		}
+		
+		$mode = 'draft';
+		if (stripos($this->input->post('submit'), 'publish') !== FALSE) {
+			$mode = 'published';
+		}
 		
 		$this->Blog->add_entry(array(
 			'blog_id' => 1,
