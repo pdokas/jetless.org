@@ -3,70 +3,97 @@
 	width: 960px;
 }
 
-#wrapper > header {
-	padding: 20px;
+#wrapper header,
+#wrapper header a {
+	color: white;
+	text-decoration: none;
 }
-	
-	#wrapper > header h1 > a {
-		color: white;
-		font-size: 4em;
-		font-weight: bold;
-		letter-spacing: -1px;
-		line-height: 1em;
-		text-decoration: none;
+
+#wrapper > header h1 {
+	font-family: cursive;
+	font-size: 16em;
+	font-weight: 500;
+	font-style: normal;
+	line-height: 1em;
+	text-align: center;
+	margin-bottom: -0.425ex;
+}
+
+	.wf-active #wrapper > header h1 {
+		font-family: "swingdancer-1", "swingdancer-2", cursive;
+		word-spacing: -0.15em;
 	}
-	
+
+#wrapper > header h6 {
+	line-height: 1em;
+}
+
+	.wf-active #wrapper > header h6 {
+		font-size: 4em;
+		font-family: "swingdancer-1", "swingdancer-2", cursive;
+		text-indent: 1em;
+	}
+
 article {
 	background-color: white;
 	border-bottom: 1px dotted #94B3DE;
 	padding: 20px;
 }
 
-	article h1 {
-		font-size: 2em;
-		margin: 0 0 0.5em 100px;
-	}
+article:first-of-type {
+	-webkit-border-top-left-radius: 15px;
+	-webkit-border-top-right-radius: 15px;
+	-moz-border-radius-topleft: 15px;
+	-moz-border-radius-topright: 15px;
+	border-top-left-radius: 15px;
+	border-top-right-radius: 15px;
+}
 
-	article time {
-		float: left;
-		font-size: 1.1em;
-		width: 100px;
-	}
-	
-	article p {
-		font-size: 1.25em;
-		line-height: 1.333em;
-		margin-left: 100px;
-	}
-	
-	article p + p {
-		margin-bottom: 1em;
-	}
-	
+article h1 {
+	font-size: 2em;
+	margin: 0 0 0.5em 100px;
+}
+
+article time {
+	float: left;
+	font-size: 1.1em;
+	width: 100px;
+}
+
+article p {
+	font-size: 1.25em;
+	line-height: 1.333em;
+	margin-left: 100px;
+}
+
+article p + p {
+	margin-bottom: 1em;
+}
+
 #new_entry {
 	background-color: white;
 	padding: 20px;
 }
 
-	#new_entry label {
-		display: block;
-	}
+#new_entry label {
+	display: block;
+}
 
-	#new_entry input[type=text] {
-		width: 50%;
-	}
-	
-	#new_entry textarea {
-		height: 15em;
-		width: 50%;
-	}
-	
-		#new_entry #excerpt { display: none; }
-		
-	#new_entry input[type=datetime] {
-		display: block;
-	}
-	
+#new_entry input[type=text] {
+	width: 50%;
+}
+
+#new_entry textarea {
+	height: 15em;
+	width: 50%;
+}
+
+#new_entry #excerpt { display: none; }
+
+#new_entry input[type=datetime] {
+	display: block;
+}
+
 #wrapper > footer {
 	background-color: white;
 	padding: 20px 20px 40px;
