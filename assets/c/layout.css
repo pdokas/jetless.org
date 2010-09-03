@@ -3,7 +3,10 @@
 	width: 960px;
 }
 
-#wrapper header,
+#wrapper header {
+	margin-top: 20px;
+}
+
 #wrapper header a {
 	color: white;
 	text-decoration: none;
@@ -16,37 +19,44 @@
 	font-style: normal;
 	line-height: 1em;
 	text-align: center;
-	margin-bottom: -0.425ex;
+	margin-bottom: -0.15ex;
 }
 
 	.wf-active #wrapper > header h1 {
-		font-family: "swingdancer-1", "swingdancer-2", cursive;
-		word-spacing: -0.15em;
+		font-family: "salsbury-1", "salsbury-2", cursive;
+		letter-spacing: -0.05em;
+		text-shadow: 5px 5px 5px rgba(0,0,0, 0.1);
 	}
 
 #wrapper > header h6 {
+	color: rgba(255, 255, 255, 0.5);
 	line-height: 1em;
 }
 
 	.wf-active #wrapper > header h6 {
 		font-size: 4em;
-		font-family: "swingdancer-1", "swingdancer-2", cursive;
+		font-family: "salsbury-1", "salsbury-2", cursive;
 		text-indent: 1em;
+		letter-spacing: -0.05em;
+		text-shadow: 2px 2px 3px rgba(0,0,0, 0.1);
 	}
 
-article {
-	background-color: white;
-	border-bottom: 1px dotted #94B3DE;
-	padding: 20px;
-}
-
-article:first-of-type {
+div#articles {
+	overflow: hidden;
+	-webkit-box-shadow: -1px -1px 0 rgba(0, 0, 0, 0.2), 1px 1px 0 rgba(255, 255, 255, 0.5);
+	-webkit-background-clip: padding-box;
 	-webkit-border-top-left-radius: 15px;
 	-webkit-border-top-right-radius: 15px;
 	-moz-border-radius-topleft: 15px;
 	-moz-border-radius-topright: 15px;
 	border-top-left-radius: 15px;
 	border-top-right-radius: 15px;
+}
+
+article {
+	background-color: white;
+	border-bottom: 1px dotted #94B3DE;
+	padding: 20px;
 }
 
 article h1 {
@@ -97,4 +107,10 @@ article p + p {
 #wrapper > footer {
 	background-color: white;
 	padding: 20px 20px 40px;
+}
+
+
+
+#codeigniter_profiler {
+	outline: 3px solid rgba(0, 0, 0, 0.3333);
 }
