@@ -88,7 +88,7 @@ article {
 }
 
 article h1 {
-	font-size: 2em;
+	font: normal normal 400 2.25em/1em "proxima-nova-1", "proxima-nova-2", futura, "century gothic", verdana, sans-serif;
 	margin: 0 0 0.5em 100px;
 }
 
