@@ -7,6 +7,14 @@
 </head>
 
 <body>
+	<nav id='primaryNav'>
+		<ol>
+			<li><a href='/'>Home</a></li>
+			<li><a href='/archives/'>Archives</a></li>
+			<li><a href='/contact/'>Contact</a></li>
+		</ol>
+	</nav>
+	
 	<div id='wrapper'>
 		<header>
 			<hgroup>

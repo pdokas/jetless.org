@@ -2,15 +2,47 @@ body {
 	border-right: 8px solid rgba(255, 255, 255, 0.667);
 }
 
+#primaryNav {
+	background: url('../i/sidebar_bg.png') no-repeat center bottom;
+	border-top: 8px solid rgba(255, 255, 255, 0.667);
+	-webkit-border-top-right-radius: 8px;
+	-moz-border-radius-topright: 8px;
+	border-top-right-radius: 8px;
+	-webkit-border-top-left-radius: 8px;
+	-moz-border-radius-topleft: 8px;
+	border-top-left-radius: 8px;
+	left: 16px;
+	padding-bottom: 62px;
+	position: absolute;
+	top: 16px;
+	width: 104px;
+}
+
+#primaryNav ol {
+	border-left: 8px solid rgba(255, 255, 255, 0.667);
+	border-right: 8px solid rgba(255, 255, 255, 0.667);
+	-webkit-border-top-right-radius: 8px;
+	-moz-border-radius-topright: 8px;
+	border-top-right-radius: 8px;
+	-webkit-border-top-left-radius: 8px;
+	-moz-border-radius-topleft: 8px;
+	border-top-left-radius: 8px;
+	margin: -7px -1px 0;
+	padding-top: 7px;
+}
+
 #wrapper {
 	background-color: rgba(255, 255, 255, 0.25);
-	border-right: 16px solid rgba(255, 255, 255, 0.667);
-	border-bottom: 16px solid rgba(255, 255, 255, 0.667);
-	-webkit-border-bottom-right-radius: 16px;
-	-moz-border-radius-bottomright: 16px;
-	border-bottom-right-radius: 16px;
+	border: 16px solid rgba(255, 255, 255, 0.667);
+	border-top: none;
+	-webkit-border-bottom-right-radius: 18px;
+	-moz-border-radius-bottomright: 18px;
+	border-bottom-right-radius: 18px;
+	-webkit-border-bottom-left-radius: 18px;
+	-moz-border-radius-bottomleft: 18px;
+	border-bottom-left-radius: 18px;
 	color: #444;
-	margin-bottom: 20px;
+	margin: 0 0 20px 152px;
 	width: 944px;
 	-webkit-box-shadow: 0px 0 10px rgba(0,0,0, 0.5);
 }
