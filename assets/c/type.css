@@ -1,4 +1,5 @@
 body {
     font: normal 62.5%/1em HelveticaNeue, "helvetica neue", helvetica, arial, sans-serif;
-    -webkit-text-stroke: 1px transparent;
+	-webkit-font-smoothing: subpixel-antialiased;
+	text-rendering: optimizeLegibility;
 }
