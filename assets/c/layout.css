@@ -1,14 +1,17 @@
 #wrapper {
+	background-color: rgba(255, 255, 255, 0.25);
+	border-left: 16px solid rgba(255, 255, 255, 0.667);
+	border-right: 16px solid rgba(255, 255, 255, 0.667);
 	margin: 0 auto;
-	width: 960px;
+	width: 928px;
 }
 
 #wrapper header {
-	margin-top: 20px;
+	padding-top: 20px;
 }
 
 #wrapper header a {
-	color: white;
+	color: #f0f0f0;
 	text-decoration: none;
 }
 
@@ -18,43 +21,33 @@
 	font-weight: 500;
 	font-style: normal;
 	line-height: 1em;
+	margin: -0.15ex 0 0;
 	text-align: center;
-	margin-bottom: -0.15ex;
 }
 
 	.wf-active #wrapper > header h1 {
-		font-family: "salsbury-1", "salsbury-2", cursive;
+		font-family:  "salsbury-1", "salsbury-2", cursive;
 		letter-spacing: -0.05em;
-		text-shadow: 5px 5px 5px rgba(0,0,0, 0.1);
+		text-shadow: -1px -1px 1px rgba(0,0,0, 0.25);
 	}
 
 #wrapper > header h6 {
-	color: rgba(255, 255, 255, 0.5);
+	color: rgba(255, 255, 255, 0.333);
 	line-height: 1em;
 }
 
 	.wf-active #wrapper > header h6 {
 		font-size: 4em;
 		font-family: "salsbury-1", "salsbury-2", cursive;
-		text-indent: 1em;
+		text-indent: 0.5em;
 		letter-spacing: -0.05em;
-		text-shadow: 2px 2px 3px rgba(0,0,0, 0.1);
 	}
 
 div#articles {
-	overflow: hidden;
-	-webkit-box-shadow: -1px -1px 0 rgba(0, 0, 0, 0.2), 1px 1px 0 rgba(255, 255, 255, 0.5);
-	-webkit-background-clip: padding-box;
-	-webkit-border-top-left-radius: 15px;
-	-webkit-border-top-right-radius: 15px;
-	-moz-border-radius-topleft: 15px;
-	-moz-border-radius-topright: 15px;
-	border-top-left-radius: 15px;
-	border-top-right-radius: 15px;
+	background-color: rgba(255, 255, 255, 0.333);
 }
 
 article {
-	background-color: white;
 	border-bottom: 1px dotted #94B3DE;
 	padding: 20px;
 }
@@ -105,7 +98,6 @@ article p + p {
 }
 
 #wrapper > footer {
-	background-color: white;
 	padding: 20px 20px 40px;
 }
 
