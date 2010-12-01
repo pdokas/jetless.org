@@ -1,8 +1,10 @@
 var express = require('express'),
-	app = express.createServer();
+app = express.createServer();
 
 app.configure(function() {
+	app.set('view engine', 'hbs');
 	app.set('views', __dirname + '/views');
+
 	// app.use(express.responseTime()); // should be #1
 	app.use(express.conditionalGet());
 	app.use(express.cookieDecoder()); // needs to precede session()
@@ -21,7 +23,7 @@ app.configure('development', function() {
 
 app.configure('production', function() {
 	app.use(express.logger());
-	app.use(express.errorHandler()); 
+	app.use(express.errorHandler());
 	// db = mongoose.connect('mongodb://localhost/nodepad-production');
 });
 
@@ -30,14 +32,17 @@ app.get('/', function(req, res) {
 });
 
 app.get('/login', function(req, res) {
-	res.render('login.jade');
+	res.render('login', {
+		cache: true,
+		compile: true
+	});
 });
 
 app.get('/admin', function(req, res) {
 	if (!req.session.poobah) {
 		res.redirect('/login');
 	}
-	
+
 	res.send('You made it!');
 });
 
@@ -58,7 +63,7 @@ app.get('/logout', function(req, res) {
 	if (req.session) {
 		req.session.destroy();
 	}
-	
+
 	res.redirect('/');
 });
 
