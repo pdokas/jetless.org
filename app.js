@@ -1,7 +1,7 @@
 var express = require('express'),
 app = express.createServer();
 
-app.configure(function() {
+app.configure(function config_global() {
 	app.set('view engine', 'hbs');
 	app.set('views', __dirname + '/views');
 
@@ -15,23 +15,44 @@ app.configure(function() {
 	app.use(express.staticProvider(__dirname + '/assets'));
 });
 
-app.configure('development', function() {
+app.configure('development', function config_dev() {
 	app.use(express.logger({ format: ':method :url :response-time' }));
 	app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
-	// db = mongoose.connect('mongodb://localhost/nodepad-development');
+	// db = mongoose.connect('mongodb://localhost/jetless-dev');
 });
 
-app.configure('production', function() {
+app.configure('production', function config_prod() {
 	app.use(express.logger());
 	app.use(express.errorHandler());
-	// db = mongoose.connect('mongodb://localhost/nodepad-production');
+	// db = mongoose.connect('mongodb://localhost/jetless-prod');
 });
 
-app.get('/', function(req, res) {
+app.get('/', function handle_root(req, res) {
 	res.send('Hello World');
 });
 
-app.get('/login', function(req, res) {
+/* = ADMIN ================================================================= */
+
+app.get('/admin', function handle_admin_root(req, res) {
+	if (check_auth(req, res)) {
+		res.send('You made it!');
+	}
+});
+
+/* = AUTH ================================================================== */
+
+function check_auth(req, res) {
+	var authorized = req.session.poobah;
+	
+	if (!authorized) {
+		req.session.auth_redirect = req.originalUrl;
+		res.redirect('/login');
+	}
+	
+	return authorized;
+}
+
+app.get('/login', function handle_login(req, res) {
 	res.render('login', {
 		locals: {
 			auth_redirect: req.session.auth_redirect
@@ -41,21 +62,12 @@ app.get('/login', function(req, res) {
 	req.session.auth_redirect = '';
 });
 
-app.get('/admin', function(req, res) {
-	if (!req.session.poobah) {
-		req.session.auth_redirect = '/admin';
-		res.redirect('/login');
-	}
-
-	res.send('You made it!');
-});
-
-app.post('/login/authenticate', function(req, res) {
+app.post('/login/authenticate', function handle_authentication(req, res) {
 	if (req.body.name === 'me' && req.body.pass === 'foo') {
 		req.session.poobah = true;
 		req.session.touch();
 		
-		res.redirect(req.body.nextpage);
+		res.redirect(req.body.auth_redirect);
 	}
 	else {
 		// Add in something to indicate login failed
@@ -63,7 +75,7 @@ app.post('/login/authenticate', function(req, res) {
 	}
 });
 
-app.get('/logout', function(req, res) {
+app.get('/logout', function handle_logout(req, res) {
 	if (req.session) {
 		req.session.destroy();
 	}
