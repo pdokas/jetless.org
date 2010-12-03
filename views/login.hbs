@@ -1,4 +1,6 @@
-<form action='/logion/authenticate' method='post'>
+<form action='/login/authenticate' method='post'>
+	<input type='hidden' name='auth_redirect' value='{{auth_redirect}}' />
+	
 	<label>name:</label>
 	<input type='text' name='name' />
 	
