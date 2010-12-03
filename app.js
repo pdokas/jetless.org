@@ -33,13 +33,17 @@ app.get('/', function(req, res) {
 
 app.get('/login', function(req, res) {
 	res.render('login', {
-		cache: true,
-		compile: true
+		locals: {
+			auth_redirect: req.session.auth_redirect
+		}
 	});
+	
+	req.session.auth_redirect = '';
 });
 
 app.get('/admin', function(req, res) {
 	if (!req.session.poobah) {
+		req.session.auth_redirect = '/admin';
 		res.redirect('/login');
 	}
 
@@ -51,7 +55,7 @@ app.post('/login/authenticate', function(req, res) {
 		req.session.poobah = true;
 		req.session.touch();
 		
-		res.redirect('/admin');
+		res.redirect(req.body.nextpage);
 	}
 	else {
 		// Add in something to indicate login failed
