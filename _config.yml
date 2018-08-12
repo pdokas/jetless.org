@@ -21,3 +21,6 @@ defaults:
   values:
     layout: page
 permalink: pretty
+gems:
+- jekyll-sitemap
+- jekyll-feed
