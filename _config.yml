@@ -8,23 +8,9 @@ collections:
   uploads:
     title: Uploads
     output: true
-defaults:
-- scope:
-    path: ''
-    type: posts
-  values:
-    layout: post
-    permalink: "/posts/:title/"
-- scope:
-    path: ''
-    type: pages
-  values:
-    layout: page
 email: phil@jetless.org
 description: 'Phil Dokas on the world wide web. I like my coffee black and my parole
-  denied.
-
-'
+  denied.'
 baseurl: ''
 url: http://jetless.org
 twitter_username: dokas
