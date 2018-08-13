@@ -1,6 +1,13 @@
 ---
 title: jetless.org
 timezone: America/Los_Angeles
+email: phil@jetless.org
+description: > # this means to ignore newlines until "baseurl:"
+  Phil Dokas on the world wide web. I like my coffee black and my parole denied.
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "http://jetless.org" # the base hostname & protocol for your site
+twitter_username: dokas
+github_username:  pdokas
 collections:
   posts:
     title: Posts
@@ -21,6 +28,8 @@ defaults:
   values:
     layout: page
 permalink: pretty
+sass:
+  style: compact
 plugins:
 - jekyll-sitemap
 - jekyll-feed
