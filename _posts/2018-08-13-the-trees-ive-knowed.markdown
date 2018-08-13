@@ -13,8 +13,8 @@ Then, to see the offramp, to see the buildings I know from street level, but mor
 
 Now that off-ramp is long gone, and clearly for the better. But lingering in the mid-air of those descending curves are cherished ghosts of adventures to be had, those electric nights with streaking lights filtered through breezy branches.
 
-*I don’t expect you’re gonna feel my way*
-*But you don’t know the trees that were there before*
+*I don’t expect you’re gonna feel my way*  
+*But you don’t know the trees that were there before*  
 *And now I want them to put back that old corner store*
 
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/q5lq_FIjbOo" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
